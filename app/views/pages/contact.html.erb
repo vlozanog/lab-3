@@ -1,0 +1,24 @@
+<h1>Contact Us</h1>
+<%= form_with url: contact_path, method: :post, local: true do |form| %>
+  <div class="mb-2">
+    <%= form.label :name, "Name" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :email, "Email" %>
+    <%= form.email_field :email, class: "form-control" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :message, "Message" %>
+    <%= form.text_area :message, class: "form-control" %>
+  </div>
+
+  <%= form.submit "Submit", class: "btn btn-danger" %>
+<% end %>
+
+<% if flash[:notice] %>
+  <div class="alert alert-success mt-2"><%= flash[:notice] %></div>
+<% end %>
+
